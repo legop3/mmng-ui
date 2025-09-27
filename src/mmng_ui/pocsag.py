@@ -471,6 +471,8 @@ class Pocsag(App):
     default='US',
     help='Charset encoding (case sensitive!)',
 )
+@click.option('--use-sox', is_flag=True, default=False, help='Use sox to convert audio sample rate before decoding')
+@click.option('--input-rate', type=int, default=48000, help='Input sample rate for sox (if sox is enabled)')
 @click.version_option(version=__version__)
 def main(mmng_binary, port, charset):
     if not shutil.which(mmng_binary):
